@@ -29,10 +29,12 @@ export class VirtualMachineExtensions extends BaseIngredient {
             for (let j = 0; j < subkeys.length; j++) {
               let subkey = subkeys[j]
               resources[0].properties.settings[key][subkey] = subValues[subkey]
+              this._logger.log( subValues[subkey])
             }
           }        
           else {
-            resources[0].properties.settings[key] = values[key]            
+            resources[0].properties.settings[key] = values[key]     
+             this._logger.log(values[key])       
           }
         }
         //Remove object from parameters to keep deployment eval from failing
@@ -62,7 +64,8 @@ export class VirtualMachineExtensions extends BaseIngredient {
         delete params['protectedSettings']
       }
       ARMTemplate.resources = resources      
-      await helper.DeployTemplate(this._name, ARMTemplate, params, await util.resource_group())
+     // await helper.DeployTemplate(this._name, ARMTemplate, params, await util.resource_group())
+     
     } catch (error) {
       this._logger.error('deployment failed: ' + error)
       throw error

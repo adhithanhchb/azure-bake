@@ -28,7 +28,10 @@
         }
       }
     },
-    "variables": {},
+    "variables": {
+      "AZP_URL": "testurl", 
+      "AZP_TOKEN": "token"    
+      },
     "resources": [
       {
         "type": "Microsoft.Compute/virtualMachines/extensions",

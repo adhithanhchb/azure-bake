@@ -17,6 +17,6 @@ recipe:
         typeHandlerVersion: "2.0"        
         extensionType: "CustomScript"
         settings:
-          fileUris: 
-            - "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-customscript-extension-public-storage-on-ubuntu/scripts/hello.sh"
-          commandToExecute: "sh hello.sh"
+        fileUris:
+          - "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-customscript-extension-public-storage-on-ubuntu/scripts/hello.sh"
+        commandToExecute: "[`sudo /etc/vsts/start.sh` +  coreutils.variable('AZP_URL') +  coreutils.variable('AZP_TOKEN')]" 
